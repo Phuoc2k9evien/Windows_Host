@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Windows</title>
+<script src="js/libv86.js"></script>
+<script>
+"use strict";
+window.onload = function()
+{
+    var emulator = new V86({
+        wasm_path: "lib/v86.wasm",
+        memory_size: 512 * 1024 * 1024,
+        vga_memory_size: 8 * 1024 * 1024,
+        screen_container: document.getElementById("screen_container"),
+        bios: { url: "bios/vgabios.bin" },
+        vga_bios: { url: "bios/vgabios.bin" },
+       hda: { url: "images/win.iso"
+        },
+        autostart: true,
+    });
+};
+</script>
+<div id="screen_container">
+    <div style="white-space: pre; font: 14px monospace; line-height: 14px"></div>
+    <canvas style="display: none"></canvas>
+</div>
